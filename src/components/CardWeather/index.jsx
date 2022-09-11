@@ -13,13 +13,13 @@ const Minicard = ({ label, description }) => {
   );
 }
 
-const Index = () => {
+const Index = ({visibility, humidity, wind}) => {
   return (
     <View style={styles.container}>
       <View style={styles.horizontalScroll}>
-        <Minicard label='58 %' description='humidity'></Minicard>
-        <Minicard label='58 %' description='humidity'></Minicard>
-        <Minicard label='58 %' description='humidity'></Minicard>
+        <Minicard label={visibility} description='Visibility'></Minicard>
+        <Minicard label={humidity} description='Humidity'></Minicard>
+        <Minicard label={wind} description='Wind Speed'></Minicard>
       </View>
     </View>
   )

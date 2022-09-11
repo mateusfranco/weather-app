@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: '100%',
     paddingBottom: 40,
-    paddingTop: 30,
+    paddingTop: 80,
   },
   image: {
     flex: 1,

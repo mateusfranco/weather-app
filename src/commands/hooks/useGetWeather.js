@@ -3,8 +3,8 @@ import { getWeather } from '../requests/getWeather';
 
 export const useGetWeather = () => {
   const [data, setData] = useState({});
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const execute = useCallback(async (data) => {
     try {

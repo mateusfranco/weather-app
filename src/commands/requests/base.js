@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
   },
   params: {
     appid: API_KEY,
-    units: 'metrics'
+    units: 'metric'
   }
 });
 
