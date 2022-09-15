@@ -13,6 +13,7 @@ export const useScreen = () => {
 
   useEffect(() => {
     if (!locationRequest.loading && !locationRequest.error && locationRequest.data) {
+      console.log({ latitude: locationRequest.data.coords.latitude, longitude: locationRequest.data.coords.longitude });
       weatherRequest.execute({ latitude: locationRequest.data.coords.latitude, longitude: locationRequest.data.coords.longitude });
     }
   }, [locationRequest.data, locationRequest.loading, locationRequest.error]);
@@ -26,8 +27,8 @@ export const useScreen = () => {
     ].includes(true)) {
       setGlobalLoading(true);
     }
-
-    if (locationRequest.data && weatherRequest.data.data) {
+    console.log(locationRequest.data, weatherRequest.data);
+    if (locationRequest.data && weatherRequest.data) {
       setGlobalLoading(false);
     } else {
       setGlobalLoading(true);

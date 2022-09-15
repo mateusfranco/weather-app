@@ -11,5 +11,3 @@ export const axiosInstance = axios.create({
     units: 'metric'
   }
 });
-
-'Content-Type: application/json; charset=utf-8'

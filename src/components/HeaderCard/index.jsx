@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { styles } from './styles';
 
-const Index = ({country, city, state, mainWeather, descriptionWeather, temp }) => {
+const Index = ({country, city, state, mainWeather, descriptionWeather, temp, children }) => {
   return (
     <View>
       <View style={styles.row}>
@@ -15,7 +15,12 @@ const Index = ({country, city, state, mainWeather, descriptionWeather, temp }) =
           <Text style={styles.title} >{descriptionWeather}</Text>
         </View>
       </View>
-      <Text style={styles.temperatureText} >{temp}°</Text>
+      <View style={styles.row}>
+        <Text style={styles.temperatureText} >{temp}°</Text>
+        <View style={styles.rowEnd}>
+          {children}
+        </View>
+      </View>
     </View>
   )
 }

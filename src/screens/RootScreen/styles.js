@@ -11,6 +11,8 @@ export const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
+    backgroundColor: '#232323',
+    opacity: 0.7,
   },
   container: {
     flexDirection: 'column',
