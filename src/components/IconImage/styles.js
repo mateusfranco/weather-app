@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const stylesComponent = StyleSheet.create({
   container: {
     marginVertical: 20,
     borderColor: '#FFFFFF',
@@ -10,6 +10,6 @@ export const styles = StyleSheet.create({
   },
   tinyLogo: {
     width: 130,
-    height: 110,
+    height: 115,
   },
 });

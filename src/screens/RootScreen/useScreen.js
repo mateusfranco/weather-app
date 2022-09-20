@@ -20,7 +20,6 @@ export const useScreen = () => {
 
   useEffect(() => {
     if ([
-      weatherRequest.error,
       weatherRequest.loading,
       locationRequest.loading,
       locationRequest.error,
@@ -37,9 +36,9 @@ export const useScreen = () => {
   locationRequest.loading,
   locationRequest.error,
   weatherRequest.data,
-  weatherRequest.error,
   weatherRequest.loading,
   ])
+
 
   return {
     weatherRequest,

@@ -1,15 +1,14 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
-import { styles } from './styles';
-import { iconConverter } from '../../utils/iconsConverter';
+import { stylesComponent } from './styles';
 
-const Index = ({ icon }) => {
-  const path = iconConverter[icon];
+const Index = ({ icon, styles }) => {
+  
   return (
-    <View style={styles.container}>
+    <View style={styles?.container || stylesComponent.container }>
       <Image
-        style={styles.tinyLogo}
-        source={path}
+        style={stylesComponent.tinyLogo}
+        source={icon}
       />
     </View>
   );

@@ -1,21 +1,23 @@
-import { View, ImageBackground, Image } from 'react-native'
-import React from 'react'
-import { CardWeather, HeaderCard, IconImage } from '../../components';
+import { View, ImageBackground, Image, Text } from 'react-native';
+import React from 'react';
+import { CardWeather, HeaderCard, IconImage, Button } from '../../components';
 import { styles } from './styles';
-import { MyLoader } from './skeleton';
+import { MyLoader } from '../LoadScreen/skeleton';
 import { backgroundConverter } from '../../utils/backgroundConverter';
+import { ErrorScreen } from '../ErrorScreen/template';
+import { iconConverter } from '../../utils/iconsConverter';
 
 export const RootScreen = ({ weatherRequest, locationRequest, globalLoading }) => {
-  console.log(globalLoading);
   if (globalLoading) {
     return <MyLoader />
   }
 
+  if (weatherRequest.error || true) { 
+    return <ErrorScreen></ErrorScreen>
+  }
+
   const formatTemp = (temp) => {
-    const mainTemp = temp.toLocaleString('pt-BR', {
-      maximumFractionDigits: 0,
-    });
-    return mainTemp
+    return String(temp).split(".")[0];
   }
 
   const formatVisibility = (value) => {
@@ -38,14 +40,17 @@ export const RootScreen = ({ weatherRequest, locationRequest, globalLoading }) =
             descriptionWeather={weatherRequest.data.weather[0].description}
           >
             <View>
-              <IconImage icon={icon} />
+              <IconImage icon={iconConverter[icon]} />
             </View>  
           </HeaderCard>
-          <CardWeather
-            humidity={`${weatherRequest.data.main.humidity}%`}
-            visibility={`${formatVisibility(weatherRequest.data.visibility)}KM`}
-            wind={`${weatherRequest.data.wind.speed}KM/H`}
-          ></CardWeather>
+          <View>
+            <Button></Button>
+            <CardWeather
+              humidity={`${weatherRequest.data.main.humidity}%`}
+              visibility={`${formatVisibility(weatherRequest.data.visibility)}KM`}
+              wind={`${weatherRequest.data.wind.speed}KM/H`}
+            ></CardWeather>
+          </View>
         </View>
       </ImageBackground>
     </View>
